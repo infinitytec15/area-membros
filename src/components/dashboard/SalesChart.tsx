@@ -42,21 +42,33 @@ const SalesChart = ({
   const maxValue = Math.max(...data.values);
 
   return (
-    <Card className="w-full bg-white">
-      <CardHeader className="flex flex-row items-center justify-between pb-2">
+    <Card className="w-full bg-white border-0 shadow-none">
+      <CardHeader className="flex flex-row items-center justify-between pb-2 px-0">
         <CardTitle className="text-lg font-medium">{title}</CardTitle>
         <Tabs defaultValue={period} className="w-auto">
-          <TabsList className="grid grid-cols-4 h-8">
-            <TabsTrigger value="7d" className="text-xs">
+          <TabsList className="grid grid-cols-4 h-8 bg-blue-50 border border-blue-100">
+            <TabsTrigger
+              value="7d"
+              className="text-xs data-[state=active]:bg-blue-500 data-[state=active]:text-white"
+            >
               7D
             </TabsTrigger>
-            <TabsTrigger value="30d" className="text-xs">
+            <TabsTrigger
+              value="30d"
+              className="text-xs data-[state=active]:bg-blue-500 data-[state=active]:text-white"
+            >
               30D
             </TabsTrigger>
-            <TabsTrigger value="90d" className="text-xs">
+            <TabsTrigger
+              value="90d"
+              className="text-xs data-[state=active]:bg-blue-500 data-[state=active]:text-white"
+            >
               90D
             </TabsTrigger>
-            <TabsTrigger value="1y" className="text-xs">
+            <TabsTrigger
+              value="1y"
+              className="text-xs data-[state=active]:bg-blue-500 data-[state=active]:text-white"
+            >
               1A
             </TabsTrigger>
           </TabsList>
@@ -96,14 +108,18 @@ const SalesChart = ({
                       className="flex flex-col items-center group"
                     >
                       <div
-                        className="w-6 bg-emerald-500 rounded-t-sm hover:bg-emerald-600 transition-all cursor-pointer"
+                        className="w-6 bg-gradient-to-t from-blue-500 to-indigo-500 rounded-t-sm hover:from-blue-600 hover:to-indigo-600 transition-all cursor-pointer shadow-lg shadow-blue-200/50"
                         style={{ height: `${height}%` }}
                       >
                         {/* Tooltip */}
-                        <div className="opacity-0 group-hover:opacity-100 absolute bottom-full mb-2 bg-gray-800 text-white text-xs rounded py-1 px-2 pointer-events-none">
-                          R$ {value.toFixed(2)}
+                        <div className="opacity-0 group-hover:opacity-100 absolute bottom-full mb-2 bg-gradient-to-br from-blue-600 to-indigo-600 text-white text-xs rounded-lg py-2 px-3 pointer-events-none shadow-xl transform group-hover:scale-110 transition-all">
+                          <span className="font-bold">
+                            R$ {value.toFixed(2)}
+                          </span>
                           <br />
-                          {data.dates[index]}
+                          <span className="text-blue-100">
+                            {data.dates[index]}
+                          </span>
                         </div>
                       </div>
                     </div>

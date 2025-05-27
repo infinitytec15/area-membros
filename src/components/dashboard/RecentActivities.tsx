@@ -23,15 +23,15 @@ interface RecentActivitiesProps {
 const getActivityIcon = (type: ActivityType) => {
   switch (type) {
     case "venda":
-      return <ShoppingCart className="h-4 w-4 text-green-500" />;
+      return <ShoppingCart className="h-5 w-5 text-green-600" />;
     case "inscricao":
-      return <UserPlus className="h-4 w-4 text-blue-500" />;
+      return <UserPlus className="h-5 w-5 text-blue-600" />;
     case "produto":
-      return <FileText className="h-4 w-4 text-orange-500" />;
+      return <FileText className="h-5 w-5 text-orange-600" />;
     case "pagamento":
-      return <DollarSign className="h-4 w-4 text-purple-500" />;
+      return <DollarSign className="h-5 w-5 text-purple-600" />;
     default:
-      return <FileText className="h-4 w-4 text-gray-500" />;
+      return <FileText className="h-5 w-5 text-gray-600" />;
   }
 };
 
@@ -130,21 +130,21 @@ const RecentActivities: React.FC<RecentActivitiesProps> = ({
   activities = defaultActivities,
 }) => {
   return (
-    <Card className="w-full h-full bg-white">
-      <CardHeader className="pb-2">
+    <Card className="w-full h-full bg-white border-0 shadow-none">
+      <CardHeader className="pb-2 px-0">
         <CardTitle className="text-lg font-semibold">
           Atividades Recentes
         </CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-0">
         <ScrollArea className="h-[280px] pr-4">
           <div className="space-y-4">
             {activities.map((activity) => (
               <div
                 key={activity.id}
-                className="flex items-start space-x-4 pb-4 border-b border-gray-100 last:border-0"
+                className="flex items-start space-x-4 pb-4 mb-4 border-b border-gray-100 last:border-0 hover:bg-blue-50/50 p-2 rounded-lg transition-colors"
               >
-                <div className="p-2 rounded-full bg-gray-50">
+                <div className="p-2 rounded-full bg-gradient-to-br from-blue-100 to-indigo-100 shadow-sm">
                   {getActivityIcon(activity.type)}
                 </div>
                 <div className="flex-1 space-y-1">

@@ -21,11 +21,11 @@ interface SummaryCardProps {
 
 const SummaryCard = ({ title, value, change, icon }: SummaryCardProps) => {
   return (
-    <Card className="bg-white">
+    <Card className="bg-gradient-to-br from-white to-blue-50 border border-blue-100 shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all">
       <CardContent className="p-6">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm text-muted-foreground">{title}</p>
+            <p className="text-sm text-muted-foreground font-medium">{title}</p>
             <h3 className="text-2xl font-bold mt-1">{value}</h3>
             {change && (
               <div className="flex items-center mt-1">
@@ -35,14 +35,16 @@ const SummaryCard = ({ title, value, change, icon }: SummaryCardProps) => {
                   <ArrowDownRight className="h-4 w-4 text-red-500 mr-1" />
                 )}
                 <span
-                  className={`text-xs ${change.isPositive ? "text-green-500" : "text-red-500"}`}
+                  className={`text-xs font-medium ${change.isPositive ? "text-green-500" : "text-red-500"}`}
                 >
                   {change.value}
                 </span>
               </div>
             )}
           </div>
-          <div className="p-3 rounded-full bg-primary/10">{icon}</div>
+          <div className="p-4 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500 shadow-md shadow-blue-200 transform hover:rotate-12 transition-all">
+            {icon}
+          </div>
         </div>
       </CardContent>
     </Card>
@@ -65,15 +67,15 @@ const SummaryCards = ({ cards = defaultCards }: SummaryCardsProps) => {
   const getIcon = (iconType: string) => {
     switch (iconType) {
       case "revenue":
-        return <DollarSign className="h-5 w-5 text-primary" />;
+        return <DollarSign className="h-6 w-6 text-white" />;
       case "sales":
-        return <ShoppingCart className="h-5 w-5 text-primary" />;
+        return <ShoppingCart className="h-6 w-6 text-white" />;
       case "balance":
-        return <Wallet className="h-5 w-5 text-primary" />;
+        return <Wallet className="h-6 w-6 text-white" />;
       case "students":
-        return <Users className="h-5 w-5 text-primary" />;
+        return <Users className="h-6 w-6 text-white" />;
       default:
-        return <DollarSign className="h-5 w-5 text-primary" />;
+        return <DollarSign className="h-6 w-6 text-white" />;
     }
   };
 

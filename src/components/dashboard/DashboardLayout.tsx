@@ -65,7 +65,7 @@ const navigationItems = [
   },
 ];
 
-export default function DashboardLayout({ children }: DashboardLayoutProps) {
+export function DashboardLayout({ children }: DashboardLayoutProps) {
   const pathname = usePathname();
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
@@ -98,11 +98,13 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
       >
         <div className="flex items-center justify-between h-16 px-4 border-b border-gray-200">
           <Link href="/dashboard" className="flex items-center">
-            <div className="w-8 h-8 rounded-md bg-emerald-500 flex items-center justify-center text-white font-bold text-lg">
-              K
+            <div className="w-8 h-8 rounded-md bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-blue-500/30 transform hover:scale-105 transition-all">
+              IF
             </div>
             {isSidebarOpen && (
-              <span className="ml-2 text-lg font-semibold">Kiwify</span>
+              <span className="ml-2 text-lg font-semibold bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent">
+                IntraFy
+              </span>
             )}
           </Link>
           <Button
@@ -128,7 +130,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                   className={cn(
                     "flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors",
                     pathname === item.href
-                      ? "bg-emerald-50 text-emerald-600"
+                      ? "bg-blue-50 text-blue-600"
                       : "text-gray-700 hover:bg-gray-100",
                   )}
                 >
@@ -169,10 +171,12 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
         <SheetContent side="left" className="w-64 p-0">
           <div className="flex items-center h-16 px-4 border-b border-gray-200">
             <Link href="/dashboard" className="flex items-center">
-              <div className="w-8 h-8 rounded-md bg-emerald-500 flex items-center justify-center text-white font-bold text-lg">
-                K
+              <div className="w-8 h-8 rounded-md bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-blue-500/30 transform hover:scale-105 transition-all">
+                IF
               </div>
-              <span className="ml-2 text-lg font-semibold">Kiwify</span>
+              <span className="ml-2 text-lg font-semibold bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent">
+                IntraFy
+              </span>
             </Link>
           </div>
           <nav className="flex-1 overflow-y-auto py-4">
@@ -184,7 +188,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                     className={cn(
                       "flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors",
                       pathname === item.href
-                        ? "bg-emerald-50 text-emerald-600"
+                        ? "bg-blue-50 text-blue-600"
                         : "text-gray-700 hover:bg-gray-100",
                     )}
                   >
@@ -221,7 +225,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                 <li>
                   <Link
                     href="/dashboard"
-                    className="text-sm font-medium text-emerald-600 hover:text-emerald-700"
+                    className="text-sm font-medium text-blue-600 hover:text-blue-700"
                   >
                     Dashboard
                   </Link>
@@ -236,7 +240,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                           "text-sm font-medium",
                           index === breadcrumbs.length - 2
                             ? "text-gray-700"
-                            : "text-emerald-600 hover:text-emerald-700",
+                            : "text-blue-600 hover:text-blue-700",
                         )}
                       >
                         {breadcrumb.title}
